@@ -1,3 +1,8 @@
+<?php 
+    require_once("config/Conf.php");
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,8 +10,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
 </head>
-<body>
-    test
-</body>
-</html>
+<body class="bg-dark text-white">
+    <header class="entete">
+        <div style="width: 10%;">
+            <img style="width: 100%;" src="https://ar-web-ouest.fr/wp-content/uploads/2022/02/cropped-Logo-Alex.png" alt="">
+        </div>
+        <div id="mySidenav" class="sidenav">
+            <a id="closeBtn" href="#" class="close">×</a>
+            <ul>
+                <li><a href="index.php">Acceuil</a></li>
+                
+                <?php if (!isset($_SESSION["loggedin"])) :?>
+                    <li><a href="inscription.php">Inscription</a></li>
+                    <li><a href="connexion.php">Connection</a></li>
+                <?php endif; ?>
+                <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) :?>
+                    <li><a href="mamusique.php">Ajouter ma musique</a></li>
+                    <li><a href="deconnexion.php">Deconnection</a></li>
+                <?php endif; ?>
+            </ul>
+        </div>
+
+        <a href="#" id="openBtn" class="btn btn-dark">
+            <span class="burger-icon">
+                ☰
+            </span>
+        </a>
+        <a href="#">A propos</a>
+        <a href="#">Contact</a>
+        <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) :?>
+            <p><?= $_SESSION["utilisateur"]; ?></p>
+        <?php endif;?>
+        <script src="script/script.js"></script>
+    </header>
