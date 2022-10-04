@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 28 sep. 2022 à 16:48
+-- Généré le : mar. 04 oct. 2022 à 20:55
 -- Version du serveur : 10.4.24-MariaDB
 -- Version de PHP : 8.1.6
 
@@ -27,16 +27,11 @@ SET time_zone = "+00:00";
 -- Structure de la table `musique`
 --
 
-CREATE DATABASE `monsite`;
-
-USE `monsite`;
-
 CREATE TABLE `musique` (
   `id` int(11) NOT NULL,
-  `Nom` char(25) NOT NULL,
-  `Description` varchar(255) NOT NULL,
-  `Musique` varchar(255) NOT NULL,
-  `PseudoUser` char(25) NOT NULL
+  `Nom` varchar(255) NOT NULL,
+  `PseudoUser` char(25) NOT NULL,
+  `chemin` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -85,7 +80,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `musique`
 --
 ALTER TABLE `musique`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT pour la table `user`
