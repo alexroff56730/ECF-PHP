@@ -16,34 +16,62 @@
 </head>
 <body class="bg-dark text-white">
     <header class="entete">
-        <div style="width: 10%;">
+        <div class="menu-resp">
+            <div style="width: 20%;">
+                <img style="width: 100%;" src="https://ar-web-ouest.fr/wp-content/uploads/2022/02/cropped-Logo-Alex.png" alt="">
+            </div>
+            <div id="mySidenav" class="sidenav">
+                <a id="closeBtn" href="#" class="close">×</a>
+                <?php 
+                    if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+                        echo $_SESSION['utilisateur'];
+                    }            
+                ?>
+                <ul>
+                    <li><a href="index.php">Acceuil</a></li>
+                
+                    <?php if (!isset($_SESSION["loggedin"])) :?>
+                        <li><a href="inscription.php">Inscription</a></li>
+                        <li><a href="connexion.php">Connection</a></li>
+                    <?php endif; ?>
+                    <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) :?>
+                        <li><a href="mamusique.php">Playlist</a></li>
+                        <li><a href="deconnexion.php">Deconnection</a></li>
+                    <?php endif; ?>
+                </ul>
+            </div>
+
+            <a href="#" id="openBtn" class="btn btn-light text-dark">
+                <span class="burger-icon">
+                    ☰
+                </span>
+            </a>
+        </div>
+        <div class="logo-desk" style="width: 10%;">
             <img style="width: 100%;" src="https://ar-web-ouest.fr/wp-content/uploads/2022/02/cropped-Logo-Alex.png" alt="">
         </div>
-        <div id="mySidenav" class="sidenav">
-            <a id="closeBtn" href="#" class="close">×</a>
-            <ul>
-                <li><a href="index.php">Acceuil</a></li>
-                
-                <?php if (!isset($_SESSION["loggedin"])) :?>
-                    <li><a href="inscription.php">Inscription</a></li>
-                    <li><a href="connexion.php">Connection</a></li>
-                <?php endif; ?>
-                <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) :?>
-                    <li><a href="mamusique.php">Ajouter ma musique</a></li>
-                    <li><a href="deconnexion.php">Deconnection</a></li>
-                <?php endif; ?>
-            </ul>
+
+        <div class=<?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
+                echo "show";
+            } else {
+                echo "hide";
+            }
+        ?>>
+            <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) :?>
+                <p><?= $_SESSION["utilisateur"]; ?></p>
+            <?php endif;?>
         </div>
 
-        <a href="#" id="openBtn" class="btn btn-dark">
-            <span class="burger-icon">
-                ☰
-            </span>
-        </a>
-        <a href="#">A propos</a>
-        <a href="#">Contact</a>
-        <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) :?>
-            <p><?= $_SESSION["utilisateur"]; ?></p>
-        <?php endif;?>
+        <ul class="menu-desk">
+            <li><a href="index.php">Accueil</a></li>
+            <?php if (!isset($_SESSION["loggedin"])) :?>
+                <li><a href="inscription.php">Inscription</a></li>
+                <li><a href="connexion.php">Connection</a></li>
+            <?php endif; ?>
+            <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) :?>
+                <li><a href="mamusique.php">Playlist</a></li>
+                <li><a href="deconnexion.php">Deconnection</a></li>
+            <?php endif; ?>
+        </ul>
         <script src="script/script.js"></script>
     </header>

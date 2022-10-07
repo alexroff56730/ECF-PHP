@@ -68,25 +68,26 @@
 ?>
 
     <div class="header-add-new">
-        <form method="post" class="bg-danger add" enctype="multipart/form-data">
+        <form method="post" class="add" style="background-color: rgba(0,0,0,0.5); border-radius: 10px;" enctype="multipart/form-data">
             <label for="add">Fichier</label>
-            <input type="file" name="add" class="btn btn-dark">
+            <input type="file" name="add" class="btn btn-secondary">
             <input type="submit" name="sub" class="btn btn-success" value="Ajouter">
         </form>
 
         
             <?php
-                $sql = "SELECT * FROM musique ORDER BY id DESC";
+                $sql = "SELECT * FROM musique WHERE PseudoUser = '{$_SESSION["utilisateur"]}' ORDER BY id DESC";
 
                 if($stmt = mysqli_query($link, $sql)) {
                     if (mysqli_num_rows($stmt) > 0) {
                         while ($ligne = mysqli_fetch_array($stmt)) {?>
-                            <div class="bg-danger add" style="margin-top: 10px;"><?php
-                            echo $ligne['Nom'] . " ";
+                            <div class="add" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; margin-top: 10px;">
+                            <?php
+                                echo $ligne['Nom'] . " ";
                             ?>
                             <audio controls src=<?= $ligne['chemin']; ?>></audio>
                             <?php
-                            echo $ligne['PseudoUser'];
+                                echo $ligne['PseudoUser'];
                             ?>
                             </div>
                             <?php
