@@ -74,18 +74,43 @@
             <input type="submit" name="sub" class="btn btn-success" value="Ajouter">
         </form>
 
+        <div class="add" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; margin-top: 10px;">
+            <audio style="width: 100%; background-color: transparent;" controls id="music">
+                <?php 
+                    $sql = "SELECT * FROM musique WHERE PseudoUser = '{$_SESSION["utilisateur"]}' ORDER BY id DESC";
+
+                    if($stmt = mysqli_query($link, $sql)) {
+                        if (mysqli_num_rows($stmt) > 0) {
+                            
+                            while ($ligne = mysqli_fetch_array($stmt)) {?>
+                                <source src=<?php
+                                    echo $ligne['chemin'];
+                                ?>
+                                >
+                                <?php
+                            }
+    
+                            mysqli_free_result($stmt);
+                        }
+                    }
+                ?>
+            </audio>
+        </div>
+
         
             <?php
                 $sql = "SELECT * FROM musique WHERE PseudoUser = '{$_SESSION["utilisateur"]}' ORDER BY id DESC";
 
                 if($stmt = mysqli_query($link, $sql)) {
                     if (mysqli_num_rows($stmt) > 0) {
+                        
                         while ($ligne = mysqli_fetch_array($stmt)) {?>
                             <div class="add" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; margin-top: 10px;">
                             <?php
-                                echo $ligne['Nom'] . " ";
+                                echo $ligne['Nom'];
+                                $path = $ligne['chemin'];
                             ?>
-                            <audio controls src=<?= $ligne['chemin']; ?>></audio>
+                                <input type="button" class="btn btn-dark" value="Lire" onclick="Play('<?= $path; ?>')">
                             <?php
                                 echo $ligne['PseudoUser'];
                             ?>
@@ -97,6 +122,11 @@
                     }
                 }
             ?>
+            <script>
+                function Play(musique) {
+                    document.getElementById('music').src=musique;
+                }
+            </script>
     </div>
 
 <?php
