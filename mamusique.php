@@ -68,32 +68,22 @@
 ?>
 
     <div class="header-add-new">
+
         <form method="post" class="add" style="background-color: rgba(0,0,0,0.5); border-radius: 10px;" enctype="multipart/form-data">
-            <label for="add">Fichier</label>
-            <input type="file" name="add" class="btn btn-secondary">
-            <input type="submit" name="sub" class="btn btn-success" value="Ajouter">
+            <div>
+                <label for="add">Fichier</label>
+                <input type="file" name="add" class="btn btn-secondary">
+                <input type="submit" name="sub" class="btn btn-success" value="Ajouter">
+            </div>
+            <div>
+            <a href="update.php" class="btn btn-light text-dark perso">modification</a>
+            <a href="delete.php" class="btn btn-danger text-dark perso">suprimer des fichiers</a>
+            </div>
         </form>
 
         <div class="add" style="background-color: rgba(0,0,0,0.5); border-radius: 10px; margin-top: 10px;">
             <audio style="width: 100%; background-color: transparent;" controls id="music">
-                <?php 
-                    $sql = "SELECT * FROM musique WHERE PseudoUser = '{$_SESSION["utilisateur"]}' ORDER BY id DESC";
-
-                    if($stmt = mysqli_query($link, $sql)) {
-                        if (mysqli_num_rows($stmt) > 0) {
-                            
-                            while ($ligne = mysqli_fetch_array($stmt)) {?>
-                                <source src=<?php
-                                    echo $ligne['chemin'];
-                                ?>
-                                >
-                                <?php
-                            }
-    
-                            mysqli_free_result($stmt);
-                        }
-                    }
-                ?>
+                <source src="">
             </audio>
         </div>
 
@@ -122,11 +112,7 @@
                     }
                 }
             ?>
-            <script>
-                function Play(musique) {
-                    document.getElementById('music').src=musique;
-                }
-            </script>
+            <script src="script/musique.js"></script>
     </div>
 
 <?php

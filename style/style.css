@@ -25,7 +25,7 @@ a:hover {
 }
 
 .menu-desk {
-  width: 20%;
+  width: 50%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -36,7 +36,7 @@ a:hover {
   display: none;
 }
 
-@media screen and (max-width: 1800px) {
+@media screen and (max-width: 900px) {
   .menu-desk {
     display: none;
   }
@@ -145,5 +145,17 @@ a:hover {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    margin-top: 10px;
 }
-  
+
+.header-add-new .add2 {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.perso:hover {
+  color: black !important;
+}

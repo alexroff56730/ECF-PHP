@@ -56,10 +56,7 @@
             } else {
                 echo "hide";
             }
-        ?>>
-            <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) :?>
-                <p><?= $_SESSION["utilisateur"]; ?></p>
-            <?php endif;?>
+        ?>>            
         </div>
 
         <ul class="menu-desk">
