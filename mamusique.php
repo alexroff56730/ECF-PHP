@@ -68,7 +68,7 @@
 ?>
 
     <div class="header-add-new">
-
+        <h1>Mes titres</h1>
         <form method="post" class="add" style="background-color: rgba(0,0,0,0.5); border-radius: 10px;" enctype="multipart/form-data">
             <div>
                 <label for="add">Fichier</label>
