@@ -2,6 +2,7 @@
     include("header.php");
 ?>
     <div class="header-add-new">
+        <h1>Tout les titres</h1>
         <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) :?>
             <div class="add2" style="flex-direction: column; background-color: rgba(0,0,0,0.5); border-radius: 10px; margin-top: 10px;">
                 <p>Votre Profile</p>
