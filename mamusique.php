@@ -76,8 +76,8 @@
                 <input type="submit" name="sub" class="btn btn-success" value="Ajouter">
             </div>
             <div>
-            <a href="update.php" class="btn btn-light text-dark perso">modification</a>
-            <a href="delete.php" class="btn btn-danger text-dark perso">suprimer des fichiers</a>
+            <a href="update.php" class="btn btn-light text-dark perso">Modification</a>
+            <a href="delete.php" class="btn btn-danger text-dark perso">Suprimer</a>
             </div>
         </form>
 
