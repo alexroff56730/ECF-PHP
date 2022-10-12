@@ -38,6 +38,7 @@
                         <li><a href="mamusique.php">Playlist</a></li>
                         <li><a href="deconnexion.php">Deconnection</a></li>
                     <?php endif; ?>
+                    <li><a href="contact.php">contact</a></li>
                 </ul>
             </div>
 
@@ -69,6 +70,7 @@
                 <li><a href="mamusique.php">Playlist</a></li>
                 <li><a href="deconnexion.php">Deconnection</a></li>
             <?php endif; ?>
+            <li><a href="contact.php">contact</a></li>
         </ul>
         <script src="script/script.js"></script>
     </header>
