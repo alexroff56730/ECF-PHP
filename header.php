@@ -38,7 +38,7 @@
                         <li><a href="mamusique.php">Playlist</a></li>
                         <li><a href="deconnexion.php">Deconnection</a></li>
                     <?php endif; ?>
-                    <li><a href="contact.php">contact</a></li>
+                    <li><a href="contact.php">Contact</a></li>
                 </ul>
             </div>
 
@@ -52,14 +52,6 @@
             <img style="width: 100%;" src="https://ar-web-ouest.fr/wp-content/uploads/2022/02/cropped-Logo-Alex.png" alt="">
         </div>
 
-        <div class=<?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-                echo "show";
-            } else {
-                echo "hide";
-            }
-        ?>>            
-        </div>
-
         <ul class="menu-desk">
             <li><a href="index.php">Accueil</a></li>
             <?php if (!isset($_SESSION["loggedin"])) :?>
@@ -70,7 +62,7 @@
                 <li><a href="mamusique.php">Playlist</a></li>
                 <li><a href="deconnexion.php">Deconnection</a></li>
             <?php endif; ?>
-            <li><a href="contact.php">contact</a></li>
+            <li><a href="contact.php">Contact</a></li>
         </ul>
         <script src="script/script.js"></script>
     </header>
